@@ -98,14 +98,10 @@
   <script>
     const levels = {
       "noir1": {
-        title: "Livello 1 - Il Caso dell’Archivio Smarrito",
+        title: "Caso #001: La Valigetta scomparsa",
         db: "level1.sqlite",
         intro: `
-          L’archivio della città è stato violato. Qualcuno ha cancellato le prove digitali.
-          Hai accesso a un backup parziale in formato SQLite. Il tuo compito è scoprire
-          chi è l’ultimo utente che ha modificato il registro delle prove.
-          <br><br>
-          Scrivi una query per elencare gli utenti ordinati per data di ultima modifica.
+          Ambientato negli anni '80, un'epoca cruda e realistica, una preziosa valigetta è scomparsa dal Blue Note Lounge.\nUn testimone ha riferito che un uomo in trench è stato visto fuggire dalla scena.\nIl tuo compito è:\n<ol>\n<li>**Trovare i dettagli del crimine:** Usa il luogo ('Blue Note Lounge') e la data (19851120) per trovare la descrizione esatta del crimine nella tabella 'scene_del_crimine' (Caso #76).\n</li>\n<li>**Identificare il sospettato:** Cerca nella tabella 'sospettati' (o 'interrogatori') l'uomo che corrisponde alla descrizione del testimone ('trench' e 'cicatrice sulla guancia sinistra').\n</li>\n<li>**Risolvere il caso:** Individua il nome del colpevole.\n</li>\n</ol>
         `
       },
       "noir2": {
