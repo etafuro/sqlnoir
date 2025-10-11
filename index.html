@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL Noir - Missioni Locali</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/sql-wasm.js"></script>
+  <style>
+    /* === Stile ispirato a SQLNoir === */
+    body {
+      background-color: #0f0f0f;
+      color: #eee;
+      font-family: "Fira Code", monospace;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3 { color: #00ff9c; }
+    .container { max-width: 1200px; margin: auto; padding: 30px; }
+    textarea {
+      width: 100%; height: 120px; background: #1b1b1b;
+      color: #00ff9c; border: 1px solid #333;
+      border-radius: 6px; padding: 10px;
+    }
+    button {
+      background: #00ff9c; color: #0f0f0f;
+      border: none; padding: 8px 16px;
+      border-radius: 6px; cursor: pointer;
+      margin-top: 10px; font-weight: bold;
+    }
+    button:hover { background: #00cc7a; }
+    table {
+      border-collapse: collapse; width: 100%; margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #333; padding: 6px 10px;
+    }
+    th { background-color: #1e1e1e; color: #00ff9c; }
+    tr:nth-child(even) { background-color: #181818; }
+    .error { color: #ff6363; }
+    .sidebar {
+      background: #141414; padding: 20px; border-radius: 8px;
+      margin-top: 20px;
+    }
+    .collapsible {
+      background-color: #141414;
+      color: #00ff9c;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      border: 1px solid #333;
+      border-radius: 6px;
+      outline: none;
+      margin-top: 10px;
+    }
+    .content {
+      padding: 10px;
+      display: none;
+      background-color: #1b1b1b;
+      border-left: 3px solid #00ff9c;
+      margin-top: 5px;
+    }
+    input[type="password"] {
+      background: #1b1b1b;
+      color: #00ff9c;
+      border: 1px solid #333;
+      padding: 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SQL Noir - Missioni Locali</h1>
+
+    <div id="login">
+      <h3>Inserisci la password del livello</h3>
+      <input type="password" id="password" placeholder="Password livello...">
+      <button id="enter-btn">Entra</button>
+      <p id="login-error" class="error"></p>
+    </div>
+
+    <div id="main" style="display:none;">
+      <h2 id="level-title"></h2>
+      <button type="button" class="collapsible">📖 Introduzione</button>
+      <div class="content" id="intro-text"></div>
+
+      <div class="sidebar">
+        <h3>Tabelle</h3>
+        <ul id="table-list"></ul>
+      </div>
+
+      <textarea id="sql-input" placeholder="Scrivi la tua query SQL qui..."></textarea><br>
+      <button id="run-btn">Esegui</button>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const levels = {
+      "noir1": {
+        title: "Livello 1 - Il Caso dell’Archivio Smarrito",
+        db: "level1.sqlite",
+        intro: `
+          L’archivio della città è stato violato. Qualcuno ha cancellato le prove digitali.
+          Hai accesso a un backup parziale in formato SQLite. Il tuo compito è scoprire
+          chi è l’ultimo utente che ha modificato il registro delle prove.
+          <br><br>
+          Scrivi una query per elencare gli utenti ordinati per data di ultima modifica.
+        `
+      },
+      "noir2": {
+        title: "Livello 2 - La Lista dei Contatti",
+        db: "level2.sqlite",
+        intro: `
+          Un informatore ha lasciato un database di contatti criptici.
+          Riesci a individuare chi lavora per la Divisione 7?
+          <br><br>
+          Esplora le tabelle e trova indizi nei campi 'role' e 'department'.
+        `
+      }
+    };
+
+    let db;
+
+    function showLevel(levelKey) {
+      const level = levels[levelKey];
+      if (!level) return;
+
+      document.getElementById("login").style.display = "none";
+      document.getElementById("main").style.display = "block";
+      document.getElementById("level-title").innerText = level.title;
+      document.getElementById("intro-text").innerHTML = level.intro;
+
+      loadDB(level.db);
+    }
+
+    function loadDB(url) {
+      fetch(url)
+        .then(res => res.arrayBuffer())
+        .then(buf => {
+          return initSqlJs({
+            locateFile: file =>
+              `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${file}`
+          }).then(SQL => {
+            db = new SQL.Database(new Uint8Array(buf));
+            refreshTableList();
+          });
+        })
+        .catch(err => {
+          document.getElementById("output").innerHTML =
+            `<p class="error">Errore caricando DB: ${err.message}</p>`;
+        });
+    }
+
+    function runQuery() {
+      const sql = document.getElementById("sql-input").value;
+      const output = document.getElementById("output");
+      output.innerHTML = "";
+      try {
+        const res = db.exec(sql);
+        if (res.length === 0) {
+          output.innerHTML = "<p>Nessun risultato (query eseguita con successo).</p>";
+        } else {
+          const table = res[0];
+          let html = "<table><tr>";
+          table.columns.forEach(c => html += `<th>${c}</th>`);
+          html += "</tr>";
+          table.values.forEach(row => {
+            html += "<tr>";
+            row.forEach(v => html += `<td>${v}</td>`);
+            html += "</tr>";
+          });
+          html += "</table>";
+          output.innerHTML = html;
+        }
+        refreshTableList();
+      } catch (err) {
+        output.innerHTML = `<p class="error">Errore: ${err.message}</p>`;
+      }
+    }
+
+    function refreshTableList() {
+      const ul = document.getElementById("table-list");
+      ul.innerHTML = "";
+      const res = db.exec("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;");
+      if (res.length > 0) {
+        res[0].values.forEach(row => {
+          const li = document.createElement("li");
+          li.textContent = row[0];
+          ul.appendChild(li);
+        });
+      }
+    }
+
+    document.getElementById("run-btn").onclick = runQuery;
+
+    document.getElementById("enter-btn").onclick = () => {
+      const pwd = document.getElementById("password").value.trim();
+      if (levels[pwd]) showLevel(pwd);
+      else document.getElementById("login-error").textContent = "Password errata.";
+    };
+
+    // Collapse intro section
+    document.addEventListener("click", e => {
+      if (e.target.classList.contains("collapsible")) {
+        e.target.classList.toggle("active");
+        const content = e.target.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      }
+    });
+  </script>
+</body>
+</html>
