@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Riepilogo Casi Detective</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .case { background-color: #fff; padding: 20px; margin-bottom: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-left: 5px solid #0056b3; }
+        .case h2 { color: #0056b3; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 0; }
+        .section-title { font-weight: bold; margin-top: 15px; margin-bottom: 5px; color: #555; }
+        .solution-box { background-color: #e9f7ef; border: 1px solid #c3e6cb; padding: 15px; border-radius: 5px; margin-top: 10px; }
+        .confession { font-style: italic; color: #008000; font-weight: bold; }
+        .steps li { margin-bottom: 8px; }
+        .summary-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+    }
+    .summary-table th, .summary-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+    .summary-table th {
+        background-color: #0056b3;
+        color: white;
+        font-weight: bold;
+    }
+    .summary-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .summary-table .culprit {
+        font-weight: bold;
+        color: #b30000; /* Rosso Scuro per la soluzione */
+    }
+    .summary-table .password {
+        font-family: 'Courier New', monospace;
+        background-color: #ffe0b2;
+        padding: 4px;
+        border-radius: 3px;
+        font-size: 0.9em;
+    }
+    </style>
+</head>
+<body>
+
+    <h2>Riepilogo Generale dei Casi e Soluzioni</h2>
+<table class="summary-table">
+    <thead>
+        <tr>
+            <th>Caso #</th>
+            <th>Titolo</th>
+            <th>Sommario Breve</th>
+            <th>Colpevole (Soluzione)</th>
+            <th>Password (Esempio)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Noir 1</td>
+            <td>La Valigetta scomparsa</td>
+            <td>Una valigetta scompare dal Blue Note Lounge. L'indizio chiave è un uomo con un trench e una cicatrice sulla guancia sinistra.</td>
+            <td class="culprit">Vincent Malone</td>
+            <td><span class="password">trench1</span></td>
+        </tr>
+        <tr>
+            <td>Noir 2</td>
+            <td>Il Disco Rubato</td>
+            <td>Un prezioso disco in vinile viene rubato dal West Hollywood Records (19830715). Il ladro aveva una bandana rossa e un orologio d'oro distintivo.</td>
+            <td class="culprit">Rico Delgado</td>
+            <td><span class="password">RicoOro</span></td>
+        </tr>
+        <tr>
+            <td>Noir 3</td>
+            <td>L'Omicidio al Porto Turistico di Miami</td>
+            <td>Un corpo viene trovato al Coral Bay Marina (19860814). I sospettati includono una persona su Ocean Drive e una persona con nome che termina in 'ul' e cognome in 'ez'.</td>
+            <td class="culprit">Thomas Brown</td>
+            <td><span class="password">Marina86</span></td>
+        </tr>
+        <tr>
+            <td>Noir 4</td>
+            <td>L'Omicidio al Ballo in Maschera di Mezzanotte</td>
+            <td>Leonard Pierce viene trovato morto durante un ballo in maschera (19871031). L'indagine si concentra su una prenotazione al Grand Regency (Stanza 707) e un falegname con una Lamborghini.</td>
+            <td class="culprit">Marco Santos</td>
+            <td><span class="password">Lambo707</span></td>
+        </tr>
+        <tr>
+            <td>Noir 5</td>
+            <td>Il Sabotaggio del Silicio</td>
+            <td>Il prototipo "QuantaX" di QuantumTech viene distrutto (19890421). I sospetti sono legati a un accesso server a Helsinki e a una tessera magnetica "QX-" dispari, orchestrato per incastrare altri.</td>
+            <td class="culprit">Hristo Bogoev</td>
+            <td><span class="password">QXHelsinki</span></td>
+        </tr>
+        <tr>
+            <td>Noir 6</td>
+            <td>Il Diamante Scomparso</td>
+            <td>La collana 'Cuore di Atlantide' scompare dall'Hotel Fontainebleau (19870520). Gli indizi portano a un noleggio al molo 3, un abito blu navy/cravatta bianca, e un invito VIP-R.</td>
+            <td class="culprit">Mike Manning</td>
+            <td><span class="password">Diamante7</span></td>
+        </tr>
+    </tbody>
+</table>
+
+    <h1>Riepilogo Dettagliato dei Casi (Fonte Ufficiale)</h1>
+
+    <!-- Caso 1: La Valigetta scomparsa -->
+    <div class="case">
+        <h2>Caso #001: La Valigetta scomparsa</h2>
+        <div class="section-title">Sommario:</div>
+        <p>Ambientato negli anni '80, un'epoca cruda e realistica, una preziosa valigetta è scomparsa dal Blue Note Lounge,. Un testimone ha riferito che un uomo in trench è stato visto fuggire dalla scena,.</p>
+        
+        <div class="section-title">Obiettivi:</div>
+        <ul class="steps">
+            <li>Trovare i dettagli del crimine per raccogliere l'indizio chiave.</li>
+            <li>Identificare il sospettato il cui profilo corrisponde alla descrizione del testimone.</li>
+            <li>Verificare il sospettato utilizzando la sua trascrizione dell'intervista.</li>
+        </ul>
+
+        <div class="section-title">Step per la Soluzione:</div>
+        <ul class="steps">
+            <li>Per prima cosa, recuperare i dettagli della scena del crimine dalla tabella 'scene_del_crimine' (Caso #76) utilizzando il luogo ('Blue Note Lounge') e la data (19851120),, che menzionava un uomo in trench con una cicatrice sulla guancia sinistra.</li>
+            <li>Successivamente, interrogare la tabella 'sospettati' per trovare l'uomo che corrisponde alla descrizione del testimone ('trench' e 'cicatrice sulla guancia sinistra') e restringere il campo a due individui,.</li>
+            <li>Infine, esaminare la tabella 'interviews' per confermare il colpevole.</li>
+        </ul>
+
+        <div class="section-title">Soluzione:</div>
+        <div class="solution-box">
+            Colpevole: <span class="confession">Vincent Malone</span>
+        </div>
+        
+        <div class="section-title">Testo di Complimenti:</div>
+        <p>Congratulazioni, detective! Hai identificato con successo Vincent Malone come il colpevole.</p>
+    </div>
+
+    <!-- Caso 2: Il Disco Rubato (The Stolen Sound) -->
+    <div class="case">
+        <h2>Caso #002: The Stolen Sound / Il Disco Rubato</h2>
+        <div class="section-title">Sommario:</div>
+        <p>Nella luce al neon di Los Angeles degli anni '80, il negozio West Hollywood Records è stato scosso da un audace furto. Un prezioso disco in vinile, del valore di oltre $10.000, è svanito durante una serata movimentata, lasciando il proprietario disperato per delle risposte,. L'incidente è avvenuto il 15 luglio 1983,.</p>
+
+        <div class="section-title">Obiettivi:</div>
+        <ul class="steps">
+            <li>Recuperare il rapporto sulla scena del crimine per il furto del disco utilizzando la data e il luogo noti,.</li>
+            <li>Recuperare i registri dei testimoni collegati a tale scena del crimine per ottenere i loro indizi.</li>
+            <li>Utilizzare gli indizi dei testimoni per trovare il sospettato nella tabella dei sospettati.</li>
+            <li>Recuperare la trascrizione dell'intervista del sospettato per confermare la confessione.</li>
+        </ul>
+
+        <div class="section-title">Step per la Soluzione:</div>
+        <ul class="steps">
+            <li>Iniziare interrogando la tabella 'crime_scene' con la data (19830715) e il luogo (West Hollywood Records), per trovare il rapporto sull'incidente.</li>
+            <li>Quindi, recuperare i due registri dei testimoni dalla tabella 'witnesses', che hanno rivelato che il sospettato indossava una bandana rossa e aveva un orologio d'oro distintivo.</li>
+            <li>Successivamente, interrogare la tabella 'suspects' per trovare i 3 sospettati corrispondenti agli indizi,.</li>
+            <li>Infine, trovare la confessione di Rico Delgado nella tabella 'interviews'.</li>
+        </ul>
+
+        <div class="section-title">Soluzione:</div>
+        <div class="solution-box">
+            Colpevole: <span class="confession">Rico Delgado</span>
+        </div>
+
+        <div class="section-title">Testo di Complimenti:</div>
+        <p>Ottimo lavoro, detective! Rico Delgado ha confessato di aver rubato il prezioso disco in vinile.</p>
+    </div>
+
+    <!-- Caso 3: L'Omicidio al Porto Turistico di Miami -->
+    <div class="case">
+        <h2>Caso #003: L'Omicidio al Porto Turistico di Miami</h2>
+        <div class="section-title">Sommario:</div>
+        <p>Un corpo è stato trovato galleggiare vicino ai moli del Coral Bay Marina nelle prime ore del 14 agosto 1986,. Due persone sono state viste nelle vicinanze: una che vive su 'Ocean Drive' (indirizzo 300 circa) e un'altra il cui nome di battesimo finisce con 'ul' e il cognome con 'ez'. L'obiettivo è trovare l'assassino e consegnarlo alla giustizia.</p>
+
+        <div class="section-title">Obiettivi:</div>
+        <ul class="steps">
+            <li>Trovare l'assassino (Iniziare trovando la scena del crimine e proseguire da lì).</li>
+        </ul>
+
+        <div class="section-title">Step per la Soluzione:</div>
+        <ul class="steps">
+            <li>L'indagine è iniziata con due sospettati dalla scena del crimine: uno che viveva su Ocean Drive e l'altro con un nome che terminava con "ez".</li>
+            <li>Dopo averli interrogati, i check-in in hotel sono stati filtrati utilizzando due indizi separati: prima per data, poi ulteriormente perfezionati utilizzando i registri di sorveglianza.</li>
+            <li>Solo tre persone corrispondevano a entrambi i filtri.</li>
+            <li>Un'intervista con ciascuno di essi ha rivelato il loro ruolo nel caso, e dopo aver insistito ulteriormente, Thomas Brown ha confessato il crimine.</li>
+        </ul>
+
+        <div class="section-title">Soluzione:</div>
+        <div class="solution-box">
+            Colpevole: <span class="confession">Thomas Brown</span>
+        </div>
+
+        <div class="section-title">Testo di Complimenti:</div>
+        <p>Ottimo lavoro da detective! Thomas Brown ha confessato il crimine.</p>
+    </div>
+    
+    <!-- Caso 4: L'Omicidio al Ballo in Maschera di Mezzanotte -->
+    <div class="case">
+        <h2>Caso #004: L'Omicidio al Ballo in Maschera di Mezzanotte</h2>
+        <div class="section-title">Sommario:</div>
+        <p>Il 31 ottobre 1987, durante un ballo in maschera in una villa di Coconut Grove, Leonard Pierce è stato trovato morto nel giardino,. I testimoni hanno menzionato una prenotazione in hotel e attività telefonica sospetta.</p>
+
+        <div class="section-title">Obiettivi:</div>
+        <ul class="steps">
+            <li>Rivelare il vero assassino di questo caso complesso.</li>
+        </ul>
+
+        <div class="section-title">Step per la Soluzione:</div>
+        <ul class="steps">
+            <li>Iniziare recuperando il registro della scena del crimine ed esaminando le dichiarazioni dei testimoni, che menzionavano una prenotazione in hotel al The Grand Regency (Stanza 707 il 19871030),.</li>
+            <li>Filtrare i check-in in hotel in base a questi indizi ha restituito più voci. Un JOIN con i registri di sorveglianza ha ristretto il campo a un'unica voce chiave che notava un soggetto urlare al telefono ("I'm gonna kill him!"),.</li>
+            <li>Rivedendo i registri telefonici, trovare una chiamata a Victor DiMarco contenente la frase "Why did you kill him, bro? You should have left the carpenter do his job!",.</li>
+            <li>Identificare il destinatario di quella chiamata e interrogarlo ha rivelato che non era l'assassino, ma ha suggerito che il vero assassino fosse un falegname che guidava una Lamborghini.</li>
+            <li>Unire il registro dei veicoli con la tabella delle persone (filtrando per occupazione "Carpenter" e modello di auto "Lamborghini") ha prodotto un unico candidato,,.</li>
+            <li>Un'intervista finale con quel candidato ha portato a una confessione.</li>
+        </ul>
+
+        <div class="section-title">Soluzione:</div>
+        <div class="solution-box">
+            Colpevole: <span class="confession">Marco Santos</span>
+        </div>
+
+        <div class="section-title">Testo di Complimenti:</div>
+        <p>Lavoro da detective eccezionale! Le prove dimostrano in modo conclusivo che Marco Santos è il vero assassino.</p>
+    </div>
+
+    <!-- Caso 5: Il Sabotaggio del Silicio -->
+    <div class="case">
+        <h2>Caso #005: Il Sabotaggio del Silicio</h2>
+        <div class="section-title">Sommario:</div>
+        <p>QuantumTech, la principale azienda tecnologica di Miami, stava per presentare il suo rivoluzionario microprocessore chiamato “QuantaX”. Poche ore prima della presentazione, il prototipo è stato distrutto e tutti i dati di ricerca sono stati cancellati. Gli investigatori sospettano spionaggio aziendale. (Incidente ID 74, Data: 19890421).</p>
+
+        <div class="section-title">Obiettivi:</div>
+        <ul class="steps">
+            <li>Trovare chi ha sabotato il microprocessore.</li>
+        </ul>
+
+        <div class="section-title">Step per la Soluzione:</div>
+        <ul class="steps">
+            <li>Iniziare recuperando il rapporto sull'incidente di QuantumTech (ID 74),. Carl Jenkins (ID 145) ha riferito di un server a Helsinki,, e Tina Ruiz (ID 134) ha visto una tessera magnetica "QX-" seguita da un numero dispari di due cifre,.</li>
+            <li>Eseguire una JOIN tra i registri di accesso della tessera magnetica e i registri di accesso al computer (filtrando per "Helsinki" e codici "QX-" dispari) ha ristretto la lista a Elizabeth Gordon (ID 99),,,.</li>
+            <li>Rivedendo la dichiarazione del testimone di Elizabeth Gordon,, scoprire un'e-mail che la avvisava di un problema all'allarme vicino al chip,.</li>
+            <li>Cercare nei registri delle e-mail e scoprire che l'e-mail proveniva da Norman Owens (ID 263),, che a sua volta aveva ricevuto due messaggi sospetti (da ID mittente NULL),,.</li>
+            <li>Un'e-mail ha detto a Norman Owens di "spostare L al suo posto" (ID 138). L'altra gli ha dato istruzioni di sbloccare la Struttura 18 in modo che qualcun altro potesse "finire il lavoro" (ID 140).</li>
+            <li>Controllare i registri di accesso alla struttura per la Struttura 18 il giorno 19890421,. Solo due individui hanno avuto accesso: Elizabeth Gordon (ID 99) alle 08:55 e Hristo Bogoev (ID 297) subito dopo, alle 09:01.</li>
+        </ul>
+
+        <div class="section-title">Soluzione:</div>
+        <div class="solution-box">
+            Colpevole: <span class="confession">Hristo Bogoev</span>,
+        </div>
+
+        <div class="section-title">Testo di Complimenti:</div>
+        <p>Lavoro da detective eccezionale! Le prove dimostrano in modo conclusivo che Hristo Bogoev è il vero sabotatore.</p>
+    </div>
+
+    <!-- Caso 6: Il Diamante Scomparso -->
+    <div class="case">
+        <h2>Caso #006: Il Diamante Scomparso (The Vanishing Diamond)</h2>
+        <div class="section-title">Sommario:</div>
+        <p>Presso il prestigioso gala di beneficenza dell'Hotel Fontainebleau di Miami, la famosa collana di diamanti 'Cuore di Atlantide' è improvvisamente scomparsa dal suo espositore,. L'incidente è avvenuto il 20 maggio 1987. Due ospiti hanno fornito indizi preziosi: un attore molto famoso e una donna consulente il cui nome di battesimo finisce con "an".</p>
+
+        <div class="section-title">Obiettivi:</div>
+        <ul class="steps">
+            <li>Trovare chi ha rubato il diamante.</li>
+        </ul>
+
+        <div class="section-title">Step per la Soluzione:</div>
+        <ul class="steps">
+            <li>Iniziare recuperando il registro della scena del crimine e le dichiarazioni dei testimoni, che menzionavano un noleggio al molo, una parte di un invito VIP-R e un abito blu navy,. Un attore famoso (Clint Eastwood, ID 129) ha menzionato di aver sentito qualcuno dire: "Incontrami al porto turistico, molo 3",.</li>
+            <li>Filtrare i noleggi al porto turistico per la data del crimine (19870520) e il numero di molo (3) ha restituito quattro voci,,,,.</li>
+            <li>Eseguire una JOIN multipla con la tabella degli ospiti e il registro dell'abbigliamento per trovare l'ospite che era un VIP-R e indossava un abito blu navy con cravatta bianca,,.</li>
+            <li>L'unico candidato che corrispondeva al noleggio al molo 3 il 19870520, era un VIP-R e indossava un "navy suit, white tie" era Mike Manning (ID 105),.</li>
+            <li>Un'intervista finale con quel candidato ha portato a una confessione,.</li>
+        </ul>
+
+        <div class="section-title">Soluzione:</div>
+        <div class="solution-box">
+            Colpevole: <span class="confession">Mike Manning</span>
+        </div>
+
+        <div class="section-title">Testo di Complimenti:</div>
+        <p>Lavoro da detective eccezionale! Le prove dimostrano in modo conclusivo che Mike Manning è il ladro.</p>
+    </div>
+    
+</body>
+</html>
+```

@@ -1,0 +1,59 @@
+    const levels = {
+      "noir1": {
+        title: "Caso #001: La Valigetta scomparsa",
+        db: "./translates/case-001_ita.sqlite",
+        intro: `
+          Ambientato negli anni '80, un'epoca cruda e realistica, una preziosa valigetta è scomparsa dal Blue Note Lounge.\nUn testimone ha riferito che un uomo in trench è stato visto fuggire dalla scena.\nIl tuo compito è:\n<ol>\n<li>**Trovare i dettagli del crimine:** Usa il luogo ('Blue Note Lounge') e la data (19851120) per trovare la descrizione esatta del crimine nella tabella 'scene_del_crimine' (Caso #76).\n</li>\n<li>**Identificare il sospettato:** Cerca nella tabella 'sospettati' (o 'interrogatori') l'uomo che corrisponde alla descrizione del testimone ('trench' e 'cicatrice sulla guancia sinistra').\n</li>\n<li>**Risolvere il caso:** Individua il nome del colpevole.\n</li>\n</ol>
+        `
+      },
+      "noir2": {
+        title: "Livello #002 - La Lista dei Contatti",
+        db: "./translates/case-002_ita.sqlite",
+        intro: `
+          Un informatore ha lasciato un database di contatti criptici.
+          Riesci a individuare chi lavora per la Divisione 7?
+          <br><br>
+          Esplora le tabelle e trova indizi nei campi 'role' e 'department'.
+        `
+      },
+      "noir3": {
+        title: "Livello 2 - La Lista dei Contatti",
+        db: "./translates/case-003_ita.sqlite",
+        intro: `
+          Un informatore ha lasciato un database di contatti criptici.
+          Riesci a individuare chi lavora per la Divisione 7?
+          <br><br>
+          Esplora le tabelle e trova indizi nei campi 'role' e 'department'.
+        `
+      },
+      "noir4": {
+        title: "Livello 2 - La Lista dei Contatti",
+        db: "./translates/case-004_ita.sqlite",
+        intro: `
+          Un informatore ha lasciato un database di contatti criptici.
+          Riesci a individuare chi lavora per la Divisione 7?
+          <br><br>
+          Esplora le tabelle e trova indizi nei campi 'role' e 'department'.
+        `
+      },
+      "noir5": {
+        title: "Livello 2 - La Lista dei Contatti",
+        db: "./translates/case-005_ita.sqlite",
+        intro: `
+          Un informatore ha lasciato un database di contatti criptici.
+          Riesci a individuare chi lavora per la Divisione 7?
+          <br><br>
+          Esplora le tabelle e trova indizi nei campi 'role' e 'department'.
+        `
+      },
+      "noir6": {
+        title: "Livello 2 - La Lista dei Contatti",
+        db: "./translates/case-006_ita.sqlite",
+        intro: `
+          Un informatore ha lasciato un database di contatti criptici.
+          Riesci a individuare chi lavora per la Divisione 7?
+          <br><br>
+          Esplora le tabelle e trova indizi nei campi 'role' e 'department'.
+        `
+      },
+    };
