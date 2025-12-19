@@ -138,17 +138,31 @@
       return params.has("introduzione");
     }
     
-    function showLevel(levelKey) {
-      const level = levels[levelKey];
-      if (!level) return;
-
-      document.getElementById("login").style.display = "none";
-      document.getElementById("main").style.display = "block";
-      document.getElementById("level-title").innerText = level.title;
-      document.getElementById("intro-text").innerHTML = level.intro;
-
-      loadDB(level.db);
+  function showLevel(levelKey) {
+    const level = levels[levelKey];
+    if (!level) return;
+  
+    document.getElementById("login").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    document.getElementById("level-title").innerText = level.title;
+    document.getElementById("intro-text").innerHTML = level.intro;
+  
+    const introBlock = document.getElementById("intro-block");
+    const introButton = introBlock.querySelector(".collapsible");
+    const introContent = document.getElementById("intro-text");
+  
+    if (hasIntroduzioneParam()) {
+      // Mostra e apri introduzione
+      introBlock.style.display = "block";
+      introContent.style.display = "block";
+      introButton.classList.add("active");
+    } else {
+      // Scompare del tutto
+      introBlock.style.display = "none";
     }
+  
+    loadDB(level.db);
+  }
 
     function loadDB(url) {
       fetch(url)
@@ -227,4 +241,5 @@
   </script>
 </body>
 </html>
+
 
