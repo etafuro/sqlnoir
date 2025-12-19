@@ -81,8 +81,10 @@
 
     <div id="main" style="display:none;">
       <h2 id="level-title"></h2>
+      <div id="intro-block" style="display:none;">
       <button type="button" class="collapsible">📖 Introduzione</button>
       <div class="content" id="intro-text"></div>
+      </div>
 
       <div class="sidebar">
         <h3>Tabelle</h3>
@@ -97,32 +99,32 @@
 
   <script>
     const levels = {
-  "trench1": {
+  "noir1": {
     "title": "Caso #001: La Valigetta scomparsa",
     "db": "./translates/case-001_ita.sqlite",
     "intro": "Ambientato negli anni '80, un'epoca cruda e realistica, una preziosa valigetta è scomparsa dal Blue Note Lounge. Un testimone ha riferito che un uomo in trench è stato visto fuggire dalla scena. (Data: 19851120)" 
   },
-  "RicoOro": {
+  "noir2": {
     "title": "Caso #002: Il Disco Rubato",
     "db": "./translates/case-002_ita.sqlite",
     "intro": "Nella luce al neon di Los Angeles degli anni '80, il negozio West Hollywood Records è stato scosso da un audace furto. Un prezioso disco in vinile, del valore di oltre $10.000, è svanito durante una serata movimentata. L'incidente è avvenuto il 15 luglio 1983." 
   },
-  "Marina86": {
+  "noir3": {
     "title": "Caso #003: L'Omicidio al Porto Turistico di Miami",
     "db": "./translates/case-003_ita.sqlite",
     "intro": "Un cadavere è stato trovato galleggiare vicino ai moli del Coral Bay Marina nelle prime ore del 14 agosto 1986. Due persone sono state viste nelle vicinanze: una che vive su 'Ocean Drive' (indirizzo 300 circa) e un'altra il cui nome di battesimo finisce con 'ul' e il cognome con 'ez'." 
   },
-  "Lambo707": {
+  "noir4": {
     "title": "Caso #004: L'Omicidio al Ballo in Maschera di Mezzanotte",
     "db": "./translates/case-004_ita.sqlite",
     "intro": "Il 31 ottobre 1987, durante un ballo in maschera in una villa di Coconut Grove, Leonard Pierce è stato trovato morto nel giardino. I testimoni hanno menzionato una prenotazione in hotel e attività telefonica sospetta." 
   },
-  "QXHelsinki": {
+  "noir5": {
     "title": "Caso #005: Il Sabotaggio del Silicio",
     "db": "./translates/case-005_ita.sqlite",
     "intro": "QuantumTech, l'azienda tecnologica leader di Miami, stava per presentare il suo rivoluzionario microprocessore 'QuantaX'. Poche ore prima della presentazione, il prototipo è stato distrutto e tutti i dati di ricerca sono stati cancellati. Gli investigatori sospettano spionaggio aziendale. (Incidente ID 74, Data: 19890421)" 
   },
-  "Diamante7": {
+  "noir6": {
     "title": "Caso #006: Il Diamante Scomparso",
     "db": "./translates/case-006_ita.sqlite",
     "intro": "Al prestigioso gala di beneficenza dell'Hotel Fontainebleau di Miami, la famosa collana di diamanti 'Cuore di Atlantide' è improvvisamente scomparsa dal suo espositore. (Data: 19870520). Molti ospiti sono stati interrogati, ma solo due hanno fornito indizi preziosi: un attore molto famoso e una donna consulente il cui nome di battesimo finisce con 'an'." 
@@ -130,7 +132,12 @@
 };
 
     let db;
-
+    
+    function hasIntroduzioneParam() {
+      const params = new URLSearchParams(window.location.search);
+      return params.has("introduzione");
+    }
+    
     function showLevel(levelKey) {
       const level = levels[levelKey];
       if (!level) return;
@@ -220,3 +227,4 @@
   </script>
 </body>
 </html>
+
